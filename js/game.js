@@ -13,15 +13,15 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-        console.log('It is a tie!');
+        return 'It is a tie!';
     } else if (playerSelection === 'rock' && computerSelection === 'paper' || 
       playerSelection === 'scissors' && computerSelection === 'rock' ||
       playerSelection === 'paper' && computerSelection === 'scissors') {
-        console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+        return `You lose! ${computerSelection} beats ${playerSelection}`;
     } else if (playerSelection === 'rock' && computerSelection === 'scissors' ||
       playerSelection === 'paper' && computerSelection === 'rock' ||
       playerSelection === 'scissors' && computerSelection === 'paper') {
-        console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+        return `You win! ${playerSelection} beats ${computerSelection}`;
     } else console.log('something went wrong');
 }
    
