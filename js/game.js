@@ -1,9 +1,9 @@
 // prompt player to enter his selection
-const getPlayerChoice = prompt('Select Rock, Paper, Scissors');
+const getPlayerChoice = prompt('Select Rock, Paper, Scissors').toLowerCase();
 
 // function getComputerChoice where computer selects randomly from ‘Rock’, ‘Paper’ or ‘Scissors’
 function getComputerChoice() {
-    const choice = ['Rock', 'Paper', 'Scissors'];
+    const choice = ['rock', 'paper', 'scissors'];
     return choice[Math.floor(Math.random() * choice.length)];
 }
 
@@ -14,13 +14,13 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         console.log('It is a tie!');
-    } else if (playerSelection === 'Rock' && computerSelection === 'Paper' || 
-      playerSelection === 'Scissors' && computerSelection === 'Rock' ||
-      playerSelection === 'Paper' && computerSelection === 'Scissors') {
+    } else if (playerSelection === 'rock' && computerSelection === 'paper' || 
+      playerSelection === 'scissors' && computerSelection === 'rock' ||
+      playerSelection === 'paper' && computerSelection === 'scissors') {
         console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
-    } else if (playerSelection === 'Rock' && computerSelection === 'Scissors' ||
-      playerSelection === 'Paper' && computerSelection === 'Rock' ||
-      playerSelection === 'Scissors' && computerSelection === 'Paper') {
+    } else if (playerSelection === 'rock' && computerSelection === 'scissors' ||
+      playerSelection === 'paper' && computerSelection === 'rock' ||
+      playerSelection === 'scissors' && computerSelection === 'paper') {
         console.log(`You win! ${playerSelection} beats ${computerSelection}`);
     } else console.log('something went wrong');
 }
