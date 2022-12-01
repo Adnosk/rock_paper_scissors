@@ -4,5 +4,12 @@
 // make it case insensitive 
 // return a string that declares the winner of the round like so: "You Lose! Paper beats Rock"
 
+function playRound(playerSelection, computerSelection) {
+    // your code here!
+  }
+   
+  const playerSelection = "rock";
+  const computerSelection = getComputerChoice();
+  console.log(playRound(playerSelection, computerSelection));
 
 // function game in which the function playRound will loop for 5 rounds and display winner/looser
