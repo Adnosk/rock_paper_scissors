@@ -1,4 +1,11 @@
+// array with rock, paper or scissor
+const choice = ['Rock', 'Paper', 'Scissor'];
+
 // function getComputerChoice where computer selects randomly from ‘Rock’, ‘Paper’ or ‘Scissors’
+function getComputerChoice() {
+    return choice[Math.floor(Math.random() * choice.length)];
+}
+console.log(getComputerChoice());
 // prompt player to enter his selection
 // function playRound which determines the winner of the current round
 // make it case insensitive 
