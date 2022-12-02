@@ -1,5 +1,4 @@
-// prompt player to enter his selection
-const getPlayerChoice = prompt('Select Rock, Paper, Scissors').toLowerCase();
+
 
 // function getComputerChoice where computer selects randomly from ‘Rock’, ‘Paper’ or ‘Scissors’
 function getComputerChoice() {
@@ -23,10 +22,13 @@ function playRound(playerSelection, computerSelection) {
       playerSelection === 'scissors' && computerSelection === 'paper') {
         return `You win! ${playerSelection} beats ${computerSelection}`;
     } else console.log('something went wrong');
-}
-   
+  }   
  
-  const computerSelection = getComputerChoice();
-  console.log(playRound(getPlayerChoice, computerSelection));
+  
+  for (let i = 0; i < 5; i++) {
+    // prompt player to enter his selection
+    const getPlayerChoice = prompt('Select Rock, Paper, Scissors').toLowerCase();
+    const computerSelection = getComputerChoice();
 
-// function game in which the function playRound will loop for 5 rounds and display winner/looser
+    console.log(playRound(getPlayerChoice, computerSelection));
+  }
