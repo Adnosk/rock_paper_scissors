@@ -2,7 +2,6 @@
 let computerScore = 0;
 let playerScore = 0;
 
-
 // function getComputerChoice where computer selects randomly from ‘Rock’, ‘Paper’ or ‘Scissors’
 function getComputerChoice() {
   const choice = ['rock', 'paper', 'scissors'];
@@ -31,14 +30,15 @@ function playRound(playerSelection, computerSelection) {
 // function game that plays 5 rounds and determines the final score
 function game() {
 
-  // for (let i = 0; i < 5; i++) {
+    const playerButtons = document.querySelectorAll('#player-buttons button');
+    playerButtons.forEach(button => {
+      button.addEventListener('click', e => {
+        const playerSelection = e.target.id;
+        const computerSelection = getComputerChoice();
 
-    // prompt player to enter his selection
-    const getPlayerChoice = prompt('Select Rock, Paper, Scissors').toLowerCase();
-    const computerSelection = getComputerChoice();
-
-    console.log(playRound(getPlayerChoice, computerSelection));
-  // }
+        console.log(playRound(playerSelection, computerSelection));
+      });
+    });
 
   if (playerScore > computerScore) {
     console.log(`You win the game with the final score of ${playerScore}:${computerScore}!`);
