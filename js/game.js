@@ -23,26 +23,28 @@ function playRound(playerSelection, computerSelection) {
     playerSelection === 'scissors' && computerSelection === 'paper') {
     playerScore++;
     return `You win! ${playerSelection} beats ${computerSelection}`;
-  } else console.log('something went wrong');
+  } else {
+    console.log('something went wrong');
+  }
 }
 
 // function game that plays 5 rounds and determines the final score
 function game() {
 
-  for (let i = 0; i < 5; i++) {
+  // for (let i = 0; i < 5; i++) {
 
     // prompt player to enter his selection
     const getPlayerChoice = prompt('Select Rock, Paper, Scissors').toLowerCase();
     const computerSelection = getComputerChoice();
 
-    console.log(playRound(getPlayerChoice, computerSelection)) === "You win"
-  }
+    console.log(playRound(getPlayerChoice, computerSelection));
+  // }
 
   if (playerScore > computerScore) {
     console.log(`You win the game with the final score of ${playerScore}:${computerScore}!`);
 
     computerScore = 0; // reset computerScore score
-    playerScore = 0; // // reset playerScore
+    playerScore = 0; // reset playerScore
   } else if (playerScore === computerScore) {
     console.log(`It is a tie with the final score of ${playerScore}:${computerScore}!`);
     computerScore = 0;
