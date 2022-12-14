@@ -2,6 +2,7 @@
 let computerScore = 0;
 let playerScore = 0;
 let counter = 0;
+const playerButtons = document.querySelectorAll('#player-buttons button');
 
 // function getComputerChoice where computer selects randomly from ‘Rock’, ‘Paper’ or ‘Scissors’
 function getComputerChoice() {
@@ -47,8 +48,6 @@ function resetGame() {
 }
 
 function game() {
-
-  const playerButtons = document.querySelectorAll('#player-buttons button');
   playerButtons.forEach(button => {
     button.addEventListener('click', e => {
       const playerSelection = e.target.id;
