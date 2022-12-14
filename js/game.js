@@ -12,22 +12,28 @@ function getComputerChoice() {
 
 // function playRound which determines the winner of the current round
 function playRound(playerSelection, computerSelection) {
-
-  if (playerSelection === computerSelection) {
-    console.log('It is a tie!');
-  } else if (playerSelection === 'rock' && computerSelection === 'paper' ||
-    playerSelection === 'scissors' && computerSelection === 'rock' ||
-    playerSelection === 'paper' && computerSelection === 'scissors') {
-    computerScore++;
-    console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
-  } else if (playerSelection === 'rock' && computerSelection === 'scissors' ||
-    playerSelection === 'paper' && computerSelection === 'rock' ||
-    playerSelection === 'scissors' && computerSelection === 'paper') {
-    playerScore++;
-    console.log(`You win! ${playerSelection} beats ${computerSelection}`);
-  } else {
-    console.log('something went wrong');
+  switch (true) {
+    case playerSelection === computerSelection:
+      console.log('It is a tie!');
+      break;
+    case playerSelection === 'rock' && computerSelection === 'paper' ||
+      playerSelection === 'scissors' && computerSelection === 'rock' ||
+      playerSelection === 'paper' && computerSelection === 'scissors':
+      computerScore++;
+      console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+      break;
+    case playerSelection === 'rock' && computerSelection === 'scissors' ||
+      playerSelection === 'paper' && computerSelection === 'rock' ||
+      playerSelection === 'scissors' && computerSelection === 'paper':
+      playerScore++;
+      console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+      break;
+    default:
+      console.log('something went wrong');
+      break;
   }
+
+  // Check if the game is over
   counter++;
   if (counter === 5) {
     if (playerScore > computerScore) {
@@ -49,13 +55,14 @@ function resetGame() {
 
 function game() {
   playerButtons.forEach(button => {
-    button.addEventListener('click', e => {
-      const playerSelection = e.target.id;
-      const computerSelection = getComputerChoice();
-
-      playRound(playerSelection, computerSelection);
-    });
+    button.addEventListener('click', handleClick);
   });
+}
+
+function handleClick(e) {
+  const playerSelection = e.target.id;
+  const computerSelection = getComputerChoice();
+  playRound(playerSelection, computerSelection);
 }
 
 game();
