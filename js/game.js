@@ -5,6 +5,7 @@ let counter = 0;
 const playerButtons = document.querySelectorAll('#player-buttons button');
 const results = document.querySelector('#results');
 const result = document.createElement('p');
+result.innerText = 'Lets play a game! Select your choice.';
 results.appendChild(result);
 
 // function getComputerChoice where computer selects randomly from ‘Rock’, ‘Paper’ or ‘Scissors’
@@ -15,36 +16,39 @@ function getComputerChoice() {
 
 // function playRound which determines the winner of the current round
 function playRound(playerSelection, computerSelection) {
+  let roundResult = '';
   switch (true) {
     case playerSelection === computerSelection:
-      console.log('It is a tie!');
+      roundResult = 'It is a tie!';
       break;
     case playerSelection === 'rock' && computerSelection === 'paper' ||
       playerSelection === 'scissors' && computerSelection === 'rock' ||
       playerSelection === 'paper' && computerSelection === 'scissors':
       computerScore++;
-      console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+      roundResult = `You lose! ${computerSelection} beats ${playerSelection}`;
       break;
     case playerSelection === 'rock' && computerSelection === 'scissors' ||
       playerSelection === 'paper' && computerSelection === 'rock' ||
       playerSelection === 'scissors' && computerSelection === 'paper':
       playerScore++;
-      console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+      roundResult = `You win! ${playerSelection} beats ${computerSelection}`;
       break;
     default:
-      console.log('something went wrong');
+      roundResult = 'something went wrong.';
       break;
   }
 
-  // Check if the game is over
   counter++;
+  result.innerHTML = `${roundResult}<br>This is the game nr.${counter}.<br>The score is ${playerScore}:${computerScore} (player:computer)`;
+
+  // Check if the game is over
   if (counter === 5) {
     if (playerScore > computerScore) {
-      console.log(`You win the game with the final score of ${playerScore}:${computerScore}!`);
+      result.innerHTML = `${roundResult}<br>You win the game with the final score of ${playerScore}:${computerScore}!`;
     } else if (playerScore === computerScore) {
-      console.log(`It is a tie with the final score of ${playerScore}:${computerScore}!`);
+      result.innerHTML = `${roundResult}<br>It is a tie with the final score of ${playerScore}:${computerScore}!`;
     } else {
-      console.log(`You lose the game with the final score of ${playerScore}:${computerScore}!`);
+      result.innerHTML = `${roundResult}<br>You lose the game with the final score of ${playerScore}:${computerScore}!`;
     }
     resetGame();
   }
