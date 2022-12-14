@@ -3,6 +3,9 @@ let computerScore = 0;
 let playerScore = 0;
 let counter = 0;
 const playerButtons = document.querySelectorAll('#player-buttons button');
+const results = document.querySelector('#results');
+const result = document.createElement('p');
+results.appendChild(result);
 
 // function getComputerChoice where computer selects randomly from ‘Rock’, ‘Paper’ or ‘Scissors’
 function getComputerChoice() {
